@@ -4,6 +4,7 @@
   "description": "Scraper for the main resources of rental flats in Barcelona",
   "main": "index.js",
   "scripts": {
+    "start": "phantomjs index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dominguezcelada/rent-flat-scraper/issues"
   },
-  "homepage": "https://github.com/dominguezcelada/rent-flat-scraper#readme"
+  "homepage": "https://github.com/dominguezcelada/rent-flat-scraper#readme",
+  "devDependencies": {
+    "phantomjs": "^2.1.7"
+  }
 }
