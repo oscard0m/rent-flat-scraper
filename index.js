@@ -7,7 +7,7 @@ var ZONES_IDEALISTA = [
 ];
 
 // ZONES_IDEALISTA.forEach(function(zone) {
-    page.open(ZONES_IDEALISTA[1], function(status) {
+    page.open(ZONES_IDEALISTA[0], function(status) {
         console.log("Status: " + status);
         if(status === "success") {
             page.render('idealista.png');
@@ -37,7 +37,7 @@ var ZONES_IDEALISTA = [
                 console.log("\n");
             })
         }
-        // phantom.exit();
+        phantom.exit();
     });
 // });
 
