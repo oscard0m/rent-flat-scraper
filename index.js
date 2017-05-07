@@ -38,9 +38,9 @@ function scrapPage(status) {
     console.log("\n-------------------------------------------------------------------");
     console.log("              " + ZONES_IDEALISTA[numOpenedPages].name + "                  ");
     console.log("-------------------------------------------------------------------\n");
-    console.log("****Status: " + status + "****\n");
+    // console.log("****Status: " + status + "****\n");
     if(status === "success") {
-        page.render('idealista.png');
+        // page.render('idealista.png');
         var recentApartments = page.evaluate(function() {
             var items = document.querySelectorAll(".item");
             var recentApartments = [];
