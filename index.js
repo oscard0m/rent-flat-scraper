@@ -20,11 +20,13 @@ var ZONES_IDEALISTA = [
                     var apartment = items[i].querySelector(".item-link");
                     var price = items[i].querySelector(".price-row");
                     var redText = items[i].querySelector(".txt-highlight-red");
+                    var url = items[i].querySelector(".txt-highlight-red");
                     
                     recentApartments.push({
                         title: apartment && apartment.textContent,
                         price: price && price.textContent,
-                        time: redText && redText.textContent
+                        time: redText && redText.textContent,
+                        url: apartment && apartment.href
                     });
                 }
                 return recentApartments;
@@ -34,6 +36,7 @@ var ZONES_IDEALISTA = [
                 console.log(recentApartment.title);
                 console.log(recentApartment.price);
                 console.log(recentApartment.time);
+                console.log(recentApartment.url);
                 console.log("\n");
             })
         }
