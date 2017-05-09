@@ -5,7 +5,7 @@ var ZONE_LES_CORTS = "https://www.idealista.com/alquiler-viviendas/barcelona/les
 var ZONE_EIXAMPLE = "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/";
 var ZONE_CIUTAT_VELLA = "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/";
 var ZONE_GRACIA = "https://www.idealista.com/alquiler-viviendas/barcelona/gracia/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/";
-var ZONE_SANTS = "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/";
+var ZONE_SANTS = "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/";
 
 var ZONES_IDEALISTA = [
     { 
@@ -61,15 +61,17 @@ function scrapPage(status) {
         });
 
         recentApartments.forEach(function(recentApartment) {
-            console.log(recentApartment.title);
-            console.log(recentApartment.price);
-            console.log(recentApartment.time);
-            console.log(recentApartment.url);
-            console.log("\n");
+            if(recentApartment.time !== '') {
+                console.log(recentApartment.title);
+                console.log(recentApartment.price);
+                console.log(recentApartment.time);
+                console.log(recentApartment.url);
+                console.log("\n");
+            }
         })
 
         numOpenedPages++;
-        if(numOpenedPages === ZONES_IDEALISTA.length - 1) phantom.exit(0);
+        if(numOpenedPages === ZONES_IDEALISTA.length) phantom.exit(0);
         else {
             page.open(ZONES_IDEALISTA[numOpenedPages].url, scrapPage);
         }
