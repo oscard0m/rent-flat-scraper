@@ -1,5 +1,7 @@
 /* eslint-disable */
 var page = require('webpage').create();
+var system = require('system');
+var args = system.args;
 
 var ZONE_LES_CORTS = "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/les-corts/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/";
 var ZONE_EIXAMPLE = "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/";
@@ -11,24 +13,35 @@ var ZONES_IDEALISTA = [
     { 
         name: "LES CORTS", 
         url: ZONE_LES_CORTS,
+        param: "--les-corts",
     },
     { 
         name: "EIXAMPLE", 
         url: ZONE_EIXAMPLE,
+        param: "--eixample",
     },
     { 
         name: "CIUTAT VELLA", 
         url: ZONE_CIUTAT_VELLA,
+        param: "--ciutat-vella",
     },
     { 
         name: "GRACIA", 
         url: ZONE_GRACIA,
+        param: "--gracia",
     },
     { 
         name: "SANTS", 
         url: ZONE_SANTS,
+        param: "--sants",
     }
 ];
+
+if(args.length >= 2) {
+    ZONES_IDEALISTA = ZONES_IDEALISTA.filter(function(zone) {
+        return args.indexOf(zone.param) >= 0;
+    })
+}
 
 var numOpenedPages = 0;
 
