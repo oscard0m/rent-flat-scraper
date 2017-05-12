@@ -3,10 +3,10 @@
 const chrome = require('chrome-remote-interface');
 const { ChromeLauncher } = require('lighthouse/lighthouse-cli/chrome-launcher');
 
-function launchChrome(headless = true) {
+const launchChrome = (headless = true) => {
 	const launcher = new ChromeLauncher({
 		port: 9222,
-		autoSelectChrome: true, // False to manually select which Chrome install.
+		autoSelectChrome: true,
 		additionalFlags: [
 			'--window-size=412,732',
 			'--disable-gpu',
@@ -16,11 +16,21 @@ function launchChrome(headless = true) {
 
 	return launcher.run().then(() => launcher)
 		.catch(err => {
-			return launcher.kill().then(() => { // Kill Chrome if there's an error.
+			return launcher.kill().then(() => {
 				throw err;
 			}, console.error);
 		});
-}
+};
+
+const loadEventFired = function(Runtime, client, launcher) {
+	this.onPageLoad(Runtime).then(() => {
+		client.close();
+		launcher.kill();
+	}).catch(error => {
+		launcher.kill();
+		console.log(error);
+	});
+};
 
 class Chrome {
 	constructor(url, onPageLoad) {
@@ -31,30 +41,19 @@ class Chrome {
 	init() {
 		launchChrome().then(launcher => {
 			chrome((client) => {
-				// extract domains
-				const { Page, Runtime } = client;
-				// setup handlers
+				const { Page, Runtime, DOM } = client;
 
-				// enable events then start!
 				Promise.all([
 					Page.enable(),
-					Runtime.enable()
+					Runtime.enable(),
+					DOM.enable()
+					
 				]).then(() => {
 					Page.navigate({ url: this.url });
-
-					Page.loadEventFired(() => {
-						this.onPageLoad(Runtime).then(() => {
-							client.close();
-							launcher.kill(); // Kill Chrome.
-						}).catch(error => {
-							launcher.kill();
-							console.log(error);
-						});
-					});
+					Page.loadEventFired(loadEventFired.bind(this, Runtime, client, launcher));
 				});
 				
 			}).on('error', (err) => {
-				// cannot connect to the remote endpoint
 				console.error(err);
 			});
 		});
