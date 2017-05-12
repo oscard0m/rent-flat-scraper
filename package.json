@@ -4,7 +4,7 @@
   "description": "Scraper for the main resources of rental flats in Barcelona",
   "main": "index.js",
   "scripts": {
-    "start": "phantomjs index.js",
+    "start": "node index.js",
     "debug": "phantomjs --debug=true index.js",
     "remote": "phantomjs --remote-debugger-port=9222 index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dominguezcelada/rent-flat-scraper#readme",
   "devDependencies": {
-    "phantomjs": "^2.1.7"
+    "chrome-remote-interface": "latest",
+    "lighthouse": "latest"
   }
 }
