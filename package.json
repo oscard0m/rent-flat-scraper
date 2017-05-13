@@ -4,9 +4,9 @@
   "description": "Scraper for the main resources of rental flats in Barcelona",
   "main": "index.js",
   "scripts": {
-    "start": "phantomjs index.js",
-    "debug": "phantomjs --debug=true index.js",
-    "remote": "phantomjs --remote-debugger-port=9222 index.js",
+    "start": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true index.js",
+    "debug": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --debug=true index.js",
+    "remote": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --remote-debugger-port=9222 index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
