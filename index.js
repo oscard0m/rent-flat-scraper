@@ -4,19 +4,19 @@ var system = require('system');
 var args = system.args;
 
 var URLS_IDEALISTA = {
-    ZONE_CIUTAT_VELLA: "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
-    ZONE_EIXAMPLE: "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
-    ZONE_GRACIA: "https://www.idealista.com/alquiler-viviendas/barcelona/gracia/vila-de-gracia/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
-    ZONE_LES_CORTS: "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/les-corts/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
-    ZONE_SANTS: "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1300,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
+    ZONE_CIUTAT_VELLA: "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+    ZONE_EIXAMPLE: "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+    ZONE_GRACIA: "https://www.idealista.com/alquiler-viviendas/barcelona/gracia/vila-de-gracia/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
+    ZONE_LES_CORTS: "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/les-corts/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+    ZONE_SANTS: "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
 };
 
 var URLS_FOTOCASA = {
-    ZONE_CIUTAT_VELLA: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/ciutat-vella/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1152,0",
-    ZONE_EIXAMPLE: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/eixample/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1151,0",
+    ZONE_CIUTAT_VELLA: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/ciutat-vella/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1152,0",
+    ZONE_EIXAMPLE: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/eixample/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1151,0",
     ZONE_GRACIA: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/vila-de-gracia/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1150,342",
-    ZONE_LESCORTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/les-corts/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1148,0",
-    ZONE_SANTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/sants-montjuic/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1144,0",
+    ZONE_LESCORTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/les-corts/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1148,0",
+    ZONE_SANTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/sants-montjuic/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1144,0",
 };
 
 var isFotocasa = args.indexOf("--fotocasa") >= 0; 
