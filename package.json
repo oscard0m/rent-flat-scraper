@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/dominguezcelada/rent-flat-scraper#readme",
   "devDependencies": {
-    "phantomjs": "^2.1.7"
+    "phantomjs": "latest",
+    "system": "latest",
+    "webpage": "latest"
   }
 }
