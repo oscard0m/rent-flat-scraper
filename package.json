@@ -7,6 +7,7 @@
     "start": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true index.js",
     "debug": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --debug=true index.js",
     "remote": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --remote-debugger-port=9222 index.js",
+    "mongo": "node mongo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
     "phantomjs": "latest",
     "system": "latest",
     "webpage": "latest"
+  },
+  "dependencies": {
+    "mongodb": "^2.2.26"
   }
 }

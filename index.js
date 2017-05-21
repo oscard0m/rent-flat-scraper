@@ -3,6 +3,8 @@ var page = require('webpage').create();
 var system = require('system');
 var args = system.args;
 
+var MongoClient = require('mongodb').MongoClient;
+
 var URLS_IDEALISTA = {
     ZONE_CIUTAT_VELLA: "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
     ZONE_EIXAMPLE: "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
@@ -118,12 +120,17 @@ function getDataApartmentsFotocasa() {
 function getDataApartmentsIdealista() {
     var items = document.querySelectorAll(".item");
     var recentApartments = [];
+
+    var urlMongo = 'mongodb://localhost:27017/rentflat';
+
     for(var i = 0; i < items.length; i++) {
         var apartment = items[i].querySelector(".item-link");
         var price = items[i].querySelector(".price-row");
         var redText = items[i].querySelector(".txt-highlight-red");
         var url = items[i].querySelector(".txt-highlight-red");
         
+
+
         recentApartments.push({
             title: apartment && apartment.textContent,
             price: price && price.textContent,
@@ -131,6 +138,16 @@ function getDataApartmentsIdealista() {
             url: apartment && apartment.href
         });
     }
+
+    MongoClient.connect(urlMongo, function(err, db) {
+        console.log("Connected correctly to server " + db.databaseName);
+        var col = db.collection('flat');
+
+        col.insertMany(recentApartments, function(err) {
+            db.close();
+        });
+    });
+
     return recentApartments;
 }
 
