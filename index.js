@@ -67,6 +67,9 @@ if(isFotocasa) {
 
 page.open(ZONES[numOpenedPages].url, scrapPage);
 
+page.onError = function(msg, trace) {
+    // console.error(msg);
+};
 
 function scrapPage(status) {
     printTitle(ZONES[numOpenedPages].name);
