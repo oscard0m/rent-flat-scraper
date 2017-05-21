@@ -51,7 +51,7 @@ var ZONES = [
     }
 ];
 
-if(!isFotocasa && args.length >= 2) {
+if(args.length >= 2) {
     ZONES = ZONES.filter(function(zone) {
         return args.indexOf(zone.param) >= 0;
     })
