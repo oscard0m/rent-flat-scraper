@@ -72,10 +72,13 @@ page.onError = function(msg, trace) {
 };
 
 function scrapPage(status) {
-    printTitle(ZONES[numOpenedPages].name);
     // console.log("****Status: " + status + "****\n");
+    var neightbourhood = ZONES[numOpenedPages].name;
     if(status === "success") {
         var recentApartments = isFotocasa? page.evaluate(getDataApartmentsFotocasa) : page.evaluate(getDataApartmentsIdealista);
+
+        if(!recentApartments || !recentApartments.length) neightbourhood += ": No new apartments";
+        printTitle(neightbourhood);
 
         recentApartments.forEach(function(recentApartment) {
             if(recentApartment.time !== '' && recentApartment.time.indexOf("día") < 0) {
@@ -93,6 +96,8 @@ function scrapPage(status) {
         } else {
             page.open(ZONES[numOpenedPages].url, scrapPage);
         }
+    } else {
+        console.log('Error extracting ' + neightbourhood);
     }
 }
 
