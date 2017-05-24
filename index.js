@@ -97,7 +97,8 @@ function scrapPage(status) {
             page.open(ZONES[numOpenedPages].url, scrapPage);
         }
     } else {
-        console.log('Error extracting ' + neightbourhood);
+        console.error('Error extracting ' + neightbourhood);
+        phantom.exit(0);
     }
 }
 
