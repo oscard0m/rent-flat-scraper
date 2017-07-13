@@ -15,8 +15,8 @@ var URLS_FOTOCASA = {
     ZONE_CIUTAT_VELLA: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/ciutat-vella/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1152,0",
     ZONE_EIXAMPLE: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/eixample/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1151,0",
     ZONE_GRACIA: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/vila-de-gracia/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1150,342",
-    ZONE_LESCORTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/les-corts/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1148,0",
     ZONE_SANTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/sants-montjuic/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1144,0",
+    ZONE_LESCORTS: "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/les-corts/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1148,0",
 };
 
 var isFotocasa = args.indexOf("--fotocasa") >= 0; 
@@ -106,17 +106,19 @@ function getDataApartmentsFotocasa() {
     var items = document.querySelectorAll(".re-Searchresult-itemRow");
     var recentApartments = [];
     for(var i = 0; i < items.length; i++) {
-        var apartment = items[i].querySelector(".re-Card-title");
-        var price = items[i].querySelector(".re-Card-priceComposite");
-        var redText = items[i].querySelector(".re-Card-timeago");
-        var url = items[i].querySelector(".re-Card-title");
-        
-        recentApartments.push({
-            title: apartment && apartment.textContent,
-            price: price && price.textContent,
-            time: redText && redText.textContent,
-            url: apartment && apartment.href
-        });
+        if(!items[i].classList.contains("re-Searchresult-adItemCard")) {
+            var apartment = items[i].querySelector(".re-Card-title");
+            var price = items[i].querySelector(".re-Card-priceComposite");
+            var redText = items[i].querySelector(".re-Card-timeago");
+            var url = items[i].querySelector(".re-Card-title");
+            
+            recentApartments.push({
+                title: apartment && apartment.textContent,
+                price: price && price.textContent,
+                time: redText && redText.textContent,
+                url: apartment && apartment.href
+            });
+        }
     }
     return recentApartments;
 }

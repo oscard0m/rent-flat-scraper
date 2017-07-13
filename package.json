@@ -19,7 +19,10 @@
     "url": "https://github.com/dominguezcelada/rent-flat-scraper/issues"
   },
   "homepage": "https://github.com/dominguezcelada/rent-flat-scraper#readme",
-  "devDependencies": {
+  "engines": {
+    "node": "8.1.4"
+  },
+  "dependencies": {
     "phantomjs": "latest",
     "system": "latest",
     "webpage": "latest"
