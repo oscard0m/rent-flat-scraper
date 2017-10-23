@@ -68,11 +68,11 @@ if(isFotocasa) {
 page.open(ZONES[numOpenedPages].url, scrapPage);
 
 page.onError = function(msg, trace) {
-    // console.error(msg);
+    console.error(msg);
 };
 
 function scrapPage(status) {
-    // console.log("****Status: " + status + "****\n");
+    console.log("****Status: " + status + "****\n");
     var neightbourhood = ZONES[numOpenedPages].name;
     if(status === "success") {
         var recentApartments = isFotocasa? page.evaluate(getDataApartmentsFotocasa) : page.evaluate(getDataApartmentsIdealista);
