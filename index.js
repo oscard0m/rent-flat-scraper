@@ -2,10 +2,10 @@
 const Nightmare = require('nightmare');
 
 var URLS_IDEALISTA = {
-    ZONE_CIUTAT_VELLA: "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
-	ZONE_EIXAMPLE: "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
-    ZONE_GRACIA: "https://www.idealista.com/alquiler-viviendas/barcelona/gracia/vila-de-gracia/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
-    ZONE_LES_CORTS: "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/les-corts/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+    // ZONE_CIUTAT_VELLA: "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+	// ZONE_EIXAMPLE: "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+    // ZONE_GRACIA: "https://www.idealista.com/alquiler-viviendas/barcelona/gracia/vila-de-gracia/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
+    // ZONE_LES_CORTS: "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/les-corts/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
     ZONE_SANTS: "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
 };
 
@@ -36,7 +36,7 @@ const getFlats = async url => {
 				})
 				.end();
 		
-		return flats && flats.length || 'No new apartments';
+		return flats || 'No new apartments';
 	} catch (e) {
 		console.error(e);
 		return 'No new apartments';
