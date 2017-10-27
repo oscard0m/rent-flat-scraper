@@ -23,6 +23,7 @@
     "node": "8.1.4"
   },
   "dependencies": {
+    "nightmare": "^2.10.0",
     "phantomjs": "latest",
     "system": "latest",
     "webpage": "latest"
