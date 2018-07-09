@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true index.js",
+    "start:ts": "./node_modules/.bin/ts-node index.ts",
+    "watch": "./node_modules/.bin/nodemon -e ts --exec npm start",
     "debug": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --debug=true index.js",
     "remote": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --remote-debugger-port=9222 index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,8 +25,18 @@
     "node": "8.1.4"
   },
   "dependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/node": "^10.5.2",
+    "express": "^4.16.3",
     "phantomjs": "latest",
     "system": "latest",
+    "typescript": "^2.9.2",
+    "typescript-ioc": "^1.2.4",
+    "typescript-rest": "^1.6.1",
     "webpage": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5",
+    "ts-node": "^7.0.0"
   }
 }
