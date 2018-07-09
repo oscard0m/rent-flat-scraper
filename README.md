@@ -15,20 +15,7 @@ The scraper right now plans to support the following websites of flat renting:
 * www.fotocasa.com - *Coming soon*
 * www.habitaclia.com - *Coming soon*
 
-### Prerequisites
-
-Your local machine needs to have installed the following tools:
-
-* `git`
-* `npm`
-
-### Installing
-
-Clone this repo:
-
-```
-git clone git@github.com:dominguezcelada/rent-flat-scraper.git
-```
+### Startup
 
 Install all the dependencies: 
 
@@ -88,7 +75,7 @@ Please read [CONTRIBUTING.md](https://github.com/dominguezcelada/rent-flat-scrap
 
 ## Versioning
 
-No versioning protogol set yet.
+*//TBD*
 
 ## Authors
 
