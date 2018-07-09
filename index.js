@@ -51,7 +51,7 @@ var ZONES = [
     }
 ];
 
-if((args.length >= 2 && !isFotocasa) || args.length >= 3) {
+if(args.length >= 3) {
     ZONES = ZONES.filter(function(zone) {
         return args.indexOf(zone.param) >= 0;
     })
@@ -103,20 +103,21 @@ function scrapPage(status) {
 }
 
 function getDataApartmentsFotocasa() {
-    var items = document.querySelectorAll(".re-Searchresult-itemRow");
+    var items = document.querySelectorAll(".re-Searchresult-item");
     var recentApartments = [];
     for(var i = 0; i < items.length; i++) {
-        if(!items[i].classList.contains("re-Searchresult-adItemCard")) {
-            var apartment = items[i].querySelector(".re-Card-title");
-            var price = items[i].querySelector(".re-Card-priceComposite");
-            var redText = items[i].querySelector(".re-Card-timeago");
-            var url = items[i].querySelector(".re-Card-title");
+        var item = items[i];
+        if(item.className.indexOf("re-Searchresult-ad") < 0) {
+            var apartment = item.querySelector(".re-Card-title");
+            var price = item.querySelector(".re-Card-priceComposite");
+            var redText = item.querySelector(".re-Card-timeago");
+            var url = item.querySelector(".re-Card-link");
             
             recentApartments.push({
                 title: apartment && apartment.textContent,
                 price: price && price.textContent,
                 time: redText && redText.textContent,
-                url: apartment && apartment.href
+                url: url && url.href
             });
         }
     }
