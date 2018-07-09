@@ -7,6 +7,8 @@
     "start": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true index.js",
     "start:ts": "./node_modules/.bin/ts-node index.ts",
     "watch": "./node_modules/.bin/nodemon -e ts --exec npm start",
+    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "./node_modules/.bin/tslint --fix -c tslint.json 'src/**/*.ts'",
     "debug": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --debug=true index.js",
     "remote": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --remote-debugger-port=9222 index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "nodemon": "^1.17.5",
-    "ts-node": "^7.0.0"
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0"
   }
 }
