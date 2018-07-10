@@ -1,0 +1,31 @@
+{
+	"ZONES": [
+		{
+			"name": "CIUTAT VELLA",
+			"url": "https://www.idealista.com/alquiler-viviendas/barcelona/ciutat-vella/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+			"param": "--ciutat-vella"
+		},
+		{
+			"name": "EIXAMPLE",
+			"url": "https://www.idealista.com/alquiler-viviendas/barcelona/eixample/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+			"param": "--eixample"
+		},
+		{
+			"name": "GRACIA",
+			"url": "https://www.idealista.com/alquiler-viviendas/barcelona/gracia/vila-de-gracia/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
+			"param": "--gracia"
+		},
+		{
+			"name": "LES CORTS",
+			"url": "https://www.idealista.com/alquiler-viviendas/barcelona/les-corts/les-corts/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,publicado_ultimas-24-horas/",
+			"param": "--les-corts"
+		},
+		{
+			"name": "SANTS",
+			"url": "https://www.idealista.com/alquiler-viviendas/barcelona/sants-montjuic/con-precio-hasta_1300,metros-cuadrados-mas-de_80,de-dos-dormitorios,de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas,amueblado_amueblados,publicado_ultimas-24-horas/",
+			"param": "--sants"
+		}
+
+	]
+}
+
