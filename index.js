@@ -3,6 +3,8 @@ var page = require('webpage').create();
 var system = require('system');
 var IDEALISTA = require('./src/providers/idealista/data/zones.json');
 var FOTOCASA = require('./src/providers/fotocasa/data/zones.json');
+var fotocasaSpider = require('./src/providers/fotocasa/spider');
+var idealistaSpider = require('./src/providers/idealista/spider');
 var args = system.args;
 
 var isFotocasa = args.indexOf("--fotocasa") >= 0;
@@ -32,7 +34,7 @@ function scrapPage(status) {
     console.log("****Status: " + status + "****\n");
     var neightbourhood = ZONES[numOpenedPages].name;
     if(status === "success") {
-        var recentApartments = isFotocasa? page.evaluate(getDataApartmentsFotocasa) : page.evaluate(getDataApartmentsIdealista);
+        var recentApartments = isFotocasa? page.evaluate(fotocasaSpider.getApartments) : page.evaluate(idealistaSpider.getApartments);
 
         if(!recentApartments || !recentApartments.length) neightbourhood += ": No new apartments";
         printTitle(neightbourhood);
@@ -57,47 +59,6 @@ function scrapPage(status) {
         console.error('Error extracting ' + neightbourhood);
         phantom.exit(0);
     }
-}
-
-function getDataApartmentsFotocasa() {
-    var items = document.querySelectorAll(".re-Searchresult-item");
-    var recentApartments = [];
-    for(var i = 0; i < items.length; i++) {
-        var item = items[i];
-        if(item.className.indexOf("re-Searchresult-ad") < 0) {
-            var apartment = item.querySelector(".re-Card-title");
-            var price = item.querySelector(".re-Card-priceComposite");
-            var redText = item.querySelector(".re-Card-timeago");
-            var url = item.querySelector(".re-Card-link");
-
-            recentApartments.push({
-                title: apartment && apartment.textContent,
-                price: price && price.textContent,
-                time: redText && redText.textContent,
-                url: url && url.href
-            });
-        }
-    }
-    return recentApartments;
-}
-
-function getDataApartmentsIdealista() {
-    var items = document.querySelectorAll(".item");
-    var recentApartments = [];
-    for(var i = 0; i < items.length; i++) {
-        var apartment = items[i].querySelector(".item-link");
-        var price = items[i].querySelector(".price-row");
-        var redText = items[i].querySelector(".txt-highlight-red");
-        var url = items[i].querySelector(".txt-highlight-red");
-
-        recentApartments.push({
-            title: apartment && apartment.textContent,
-            price: price && price.textContent,
-            time: redText && redText.textContent,
-            url: apartment && apartment.href
-        });
-    }
-    return recentApartments;
 }
 
 function printTitle(title) {
