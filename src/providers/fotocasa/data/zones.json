@@ -1,0 +1,31 @@
+{
+	"ZONES": [
+		{
+			"name": "CIUTAT VELLA",
+			"url": "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/ciutat-vella/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1152,0",
+			"param": "--ciutat-vella"
+		},
+		{
+			"name": "EIXAMPLE",
+			"url": "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/eixample/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1151,0",
+			"param": "--eixample"
+		},
+		{
+			"name": "GRACIA",
+			"url": "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/vila-de-gracia/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&combinedLocationIds=724,9,8,232,376,8019,0,1150,342",
+			"param": "--gracia"
+		},
+		{
+			"name": "LES CORTS",
+			"url": "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/sants-montjuic/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1144,0",
+			"param": "--les-corts"
+		},
+		{
+			"name": "SANTS",
+			"url": "http://www.fotocasa.es/es/alquiler/casas/barcelona-capital/les-corts/amueblado/l?latitude=41.3854&longitude=2.1775&maxPrice=1250&minRooms=2&minSurface=80&combinedLocationIds=724,9,8,232,376,8019,0,1148,0",
+			"param": "--sants"
+		}
+
+	]
+}
+
