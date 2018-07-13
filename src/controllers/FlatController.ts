@@ -6,6 +6,6 @@ export class FlatController {
   @Path("hello")
   @GET
   public async helloWorld(): Promise<string> {
-    return "Hello World!";
+    return 'Hello World!';
   }
 }
