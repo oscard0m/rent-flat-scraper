@@ -13,7 +13,7 @@ pattern="./src/**/*.ts$"
 status=0
 for file in $files
 do
-		echo -e "${file} ${file} =~ $pattern"
+		echo -e "${file}"
 	if [[ ${file} =~ $pattern ]]; then
 		echo -e "************************************"
 		echo -e "TSLINT: ${file}"
