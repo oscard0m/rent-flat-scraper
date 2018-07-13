@@ -8,20 +8,16 @@ else
 	files=$@
 fi
 
-
-pattern="./src/**/*.ts$"
+pattern="src.*\.ts$"
 status=0
 for file in $files
 do
-		echo -e "${file}"
 	if [[ ${file} =~ $pattern ]]; then
 		echo -e "************************************"
-		echo -e "TSLINT: ${file}"
+		echo -e "TSLINT: File: ${file}"
 		echo -e "************************************"
 		npm run precommitLint ${file}
-
 		status=$?
-
 		currentStatus=$?
 
 		if [ $currentStatus == 0 ]; then

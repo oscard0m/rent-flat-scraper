@@ -14,6 +14,6 @@ create-precommit:
 	@chmod +x .git/hooks/pre-commit
 
 dependency-install:
-	@echo -e "\033[0;33m>>> >>> >>> \033[0;30;46m Install dependecies \033[0m"
+	@echo "\033[0;33m>>> >>> >>> \033[0;30;46m Install dependecies \033[0m"
 	npm i
 
