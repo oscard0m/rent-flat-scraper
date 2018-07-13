@@ -8,6 +8,7 @@
     "start:ts": "./node_modules/.bin/ts-node index.ts",
     "watch": "./node_modules/.bin/nodemon -e ts --exec npm start",
     "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "precommitLint": "./node_modules/.bin/tslint -c tslint.json ",
     "lint:fix": "./node_modules/.bin/tslint --fix -c tslint.json 'src/**/*.ts'",
     "debug": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --debug=true index.js",
     "remote": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --remote-debugger-port=9222 index.js",
