@@ -1,0 +1,45 @@
+#!/bin/bash
+
+ROOTPATH=$(git rev-parse --show-toplevel)
+
+if [ $# -eq 0 ]; then
+	files=$(git diff --cached --name-only --diff-filter=AM)
+else
+	files=$@
+fi
+status=0
+
+echo -e "************************************"
+echo -e "TSLINT"
+echo -e "************************************"
+for file in $files
+do
+
+	echo -e "File: ${file}"
+
+	echo -e npm run precommitLint ${file}
+		npm run precommitLint ${file}
+
+		status=$?
+
+
+	currentStatus=$?
+
+	if [ $currentStatus == 0 ]; then
+		echo -e "OK :)"
+	fi
+
+	if [ $status == 0 ]; then
+		status=$currentStatus
+	fi
+done
+
+
+
+if [ $status != 0 ]; then
+        echo -e "************************************"
+        echo -e "COMMIT REJECTED"
+		echo -e "SEH: FIX YOUR CODE!!!!"
+		echo -e "************************************"
+        exit 1
+fi

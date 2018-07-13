@@ -17,10 +17,10 @@ The scraper right now plans to support the following websites of flat renting:
 
 ### Startup
 
-Install all the dependencies: 
+Install all the dependencies:
 
 ```
-npm i
+make
 ```
 
 Run the script to scrape the flats:
