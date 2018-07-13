@@ -7,30 +7,29 @@ if [ $# -eq 0 ]; then
 else
 	files=$@
 fi
-status=0
 
 echo -e "************************************"
 echo -e "TSLINT"
 echo -e "************************************"
+pattern="src/**/*.ts$"
+status=0
 for file in $files
 do
-
-	echo -e "File: ${file}"
-
-	echo -e npm run precommitLint ${file}
+	if [[ ${file} =~ $pattern ]]; then
+		echo -e "File: ${file}"
 		npm run precommitLint ${file}
 
 		status=$?
 
+		currentStatus=$?
 
-	currentStatus=$?
+		if [ $currentStatus == 0 ]; then
+			echo -e "OK :)"
+		fi
 
-	if [ $currentStatus == 0 ]; then
-		echo -e "OK :)"
-	fi
-
-	if [ $status == 0 ]; then
-		status=$currentStatus
+		if [ $status == 0 ]; then
+			status=$currentStatus
+		fi
 	fi
 done
 

@@ -1,6 +1,6 @@
 import { GET, Path } from "typescript-rest";
 
-@Path("/flat/")
+@Path('/flat/')
 export class FlatController {
 
   @Path('hello')
