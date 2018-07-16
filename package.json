@@ -11,7 +11,7 @@
     "lint:fix": "./node_modules/.bin/tslint --fix -c tslint.json 'src/**/*.ts'",
     "debug": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --debug=true index.js",
     "remote": "phantomjs --ssl-protocol=any --ignore-ssl-errors=true --remote-debugger-port=9222 index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register test/**/*.ts"
   },
   "repository": {
     "type": "git",
