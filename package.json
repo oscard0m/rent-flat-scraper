@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/dominguezcelada/rent-flat-scraper#readme",
   "engines": {
-    "node": "8.1.4"
+    "node": "8.17.0"
   },
   "dependencies": {
     "@types/cors": "latest",
