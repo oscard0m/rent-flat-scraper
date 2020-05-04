@@ -4,3 +4,4 @@ minApprovals:
 requiredLabels:
 - dependencies
 mergeMethod: squash
+reportStatus: true
