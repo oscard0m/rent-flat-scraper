@@ -1,0 +1,6 @@
+  
+minApprovals:
+  COLLABORATOR: 0
+requiredLabels:
+- dependencies
+mergeMethod: squash
